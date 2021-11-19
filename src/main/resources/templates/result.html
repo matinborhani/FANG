@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <title>نتیجه</title>
+</head>
+<body>
+<style>
+    .testimonial-group > .row {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .testimonial-group > .row > .col-xs-4 {
+        display: inline-block;
+        float: none;
+    }
+</style>
+    <!--new Search-->
+    <div class="container testimonial-group "  style="margin-top: 15px;">
+        <div class="row">
+        <form class="form-inline md-form form-sm mt-0" dir="rtl" style="margin-right: 65px"
+              th:action="@{/search}" th:object="${input}" method="post" >
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input class="form-control form-control-sm ml-3 w-75" dir="rtl" type="text" placeholder="عبارت خود را وارد کنید !"
+                   aria-label="Search" required="required" th:field="*{strInput}" style="height: 35px">
+            <button type="submit" >
+                <img src="/images/search2.png" style="width: 30px;height: 30px">
+            </button>
+
+
+
+
+            <hr>
+            <p style="float: right;margin: 10px; margin-right: 15px" > <input th:field="*{numberAllPage}" readonly>صفحه<label >
+                <input required="required" th:field="*{numPage}"></label></p>
+        </form>
+        </div>
+    </div>
+    <div style="padding: 30px;float: right;display: table-row" dir="rtl"
+        th:each="Properties:${listProperties}" >
+        <p  th:text="${Properties.title}" class="text-primary" style="font-size: 20px;text-align: center;display: table-row" dir="rtl"></p>
+        <a  th:text="${Properties.url}" href="#" class="text-success"></a>
+        <p th:text="${Properties.body}" class="text-secondary" dir="rtl"></p>
+
+    </div>
+
+<script>
+    var numberPage = [[${number}]];
+    numberPage= 1;
+</script>
+</body>
+</html>
