@@ -3,7 +3,7 @@
 
 **Java** and **Spring Boot** has been used for implemet this project. **MVC** is architecture of the project
 
-## About Structure of Project
+## Structure of Project
 We get a large file with the name `WEBIR`that includes data from university of Tehran, Tebyan, etc.
 
 First, we parse this file with Sax-Parser (https://www.tutorialspoint.com/java_xml/java_sax_parser.htm) and jsoup (https://github.com/jhy/jsoup). These files exist in the `parse` directory. The output file is `textdocs022.txt`.
